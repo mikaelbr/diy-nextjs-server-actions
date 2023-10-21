@@ -1,6 +1,6 @@
 import { AddForm } from "@/app/add-form";
 import { DeleteForm } from "@/app/delete-form";
-import { getData } from "./data.actions";
+import { getData } from "./data";
 
 export default async function Home() {
   const todos = await getData();

@@ -1,14 +1,13 @@
 "use client";
 
-import { createTodo } from "@/app/data.actions";
-import Form from "./Form";
+import { createTodo } from "@/app/data";
 
 export function AddForm() {
   return (
-    <Form action={createTodo}>
+    <form action={createTodo}>
       <label htmlFor="todo">Enter Task</label>
       <input type="text" id="todo" name="todo" autoFocus required />
       <button type="submit">Add</button>
-    </Form>
+    </form>
   );
 }
