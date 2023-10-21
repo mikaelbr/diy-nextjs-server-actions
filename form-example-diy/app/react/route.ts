@@ -20,7 +20,7 @@ async function handle(request: NextRequest) {
 }
 
 async function matchHandlers(request: NextRequest) {
-  const info = fromId(request.nextUrl.searchParams.get("id"));
+  const info = fromId(request.nextUrl.searchParams.get("id")!);
 
   try {
     // @TODO fix security
