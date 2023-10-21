@@ -24,7 +24,7 @@ async function matchHandlers(request: NextRequest) {
 
   try {
     // @TODO fix security
-    const data = await import(`../${info.file}`);
+    const data = await import(`@/app/${info.file}`);
 
     if (!data) {
       return false;
