@@ -1,0 +1,10 @@
+{
+  "name": "basic-form",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "formidable": "^3.5.1"
+  }
+}
