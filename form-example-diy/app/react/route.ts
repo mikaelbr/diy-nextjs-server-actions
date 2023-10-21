@@ -8,8 +8,11 @@ async function handle(request: NextRequest) {
   const matchedHandler = await matchHandlers(request);
 
   if (!matchedHandler) return;
-
-  if ("redirect" in matchedHandler) {
+  console.log(request.headers.get("accepts"));
+  if (
+    "redirect" in matchedHandler &&
+    request.headers.get("accepts") !== "application/json"
+  ) {
     const url = request.nextUrl.clone();
     url.search = "";
     url.pathname = matchedHandler.redirect;
