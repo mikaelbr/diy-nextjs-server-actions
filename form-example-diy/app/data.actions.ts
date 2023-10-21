@@ -9,11 +9,11 @@ type Todo = z.infer<typeof todoItem>;
 
 let todos: Todo[] = [];
 
-export async function getData() {
+export const getData = async function getData() {
   return todos;
-}
+};
 
-export async function createTodo(formData: FormData) {
+export const createTodo = async function createTodo(formData: FormData) {
   const schema = z.object({
     todo: z.string().min(1),
   });
@@ -27,9 +27,9 @@ export async function createTodo(formData: FormData) {
   });
 
   return { redirect: "/" };
-}
+};
 
-export async function deleteTodo(formData: FormData) {
+export const deleteTodo = async function deleteTodo(formData: FormData) {
   const data = todoItem.parse({
     id: formData.get("id"),
     todo: formData.get("todo"),
@@ -37,4 +37,4 @@ export async function deleteTodo(formData: FormData) {
 
   todos = todos.filter((i) => i.id !== data.id);
   return { redirect: "/" };
-}
+};

@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { fromId } from "../../action-utils.js";
+import { fromId } from "@/action-utils";
 
 export const GET = handle;
 export const POST = handle;
