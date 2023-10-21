@@ -8,7 +8,7 @@ async function handle(request: NextRequest) {
   const matchedHandler = await matchHandlers(request);
 
   if (!matchedHandler) return;
-  console.log(request.headers.get("accepts"));
+
   if (
     "redirect" in matchedHandler &&
     request.headers.get("accepts") !== "application/json"
