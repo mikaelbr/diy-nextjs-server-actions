@@ -11,6 +11,7 @@ const server = createServer(async function (req, res) {
     console.log(new Date(), fields);
   }
 
+  // just serve index no matter what...
   res.writeHead(200, { "Content-Type": "text/html" });
   createReadStream("./index.html").pipe(res);
 });
