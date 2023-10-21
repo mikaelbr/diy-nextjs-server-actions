@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 const todoItem = z.object({
@@ -28,7 +29,7 @@ export async function createTodo(formData: FormData) {
     todo: data.todo,
   });
 
-  return { redirect: "/" };
+  revalidatePath("/");
 }
 
 export async function deleteTodo(formData: FormData) {
@@ -38,5 +39,5 @@ export async function deleteTodo(formData: FormData) {
   });
 
   todos = todos.filter((i) => i.id !== data.id);
-  return { redirect: "/" };
+  revalidatePath("/");
 }

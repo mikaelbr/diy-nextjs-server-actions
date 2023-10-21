@@ -24,17 +24,12 @@ export async function createTodo(formData: FormData) {
     todo: formData.get("todo"),
   });
 
-  try {
-    todos.push({
-      id: Math.random().toString(),
-      todo: data.todo,
-    });
+  todos.push({
+    id: Math.random().toString(),
+    todo: data.todo,
+  });
 
-    revalidatePath("/");
-    return { message: `Added todo ${data.todo}` };
-  } catch (e) {
-    return { message: "Failed to create todo" };
-  }
+  revalidatePath("/");
 }
 
 export async function deleteTodo(formData: FormData) {
@@ -43,11 +38,7 @@ export async function deleteTodo(formData: FormData) {
     todo: formData.get("todo"),
   });
 
-  try {
-    todos = todos.filter((i) => i.id !== data.id);
-    revalidatePath("/");
-    return { message: `Deleted todo ${data.todo}` };
-  } catch (e) {
-    return { message: "Failed to delete todo" };
-  }
+  todos = todos.filter((i) => i.id !== data.id);
+
+  revalidatePath("/");
 }
